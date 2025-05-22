@@ -11,16 +11,16 @@ API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
-OWNER_ID = int(getenv("OWNER_ID", 7044783841))
-OWNER_USERNAME = getenv("OWNER_USERNAME", "CertifiedCoder")
-BOT_USERNAME = getenv("BOT_USERNAME", "TuneviaBot")
-BOT_NAME = getenv("BOT_NAME", "˹ᴛᴜɴᴇ ᴠɪᴀ ʙᴏᴛ˼")
-ASSUSERNAME = getenv("ASSUSERNAME", "tuneviaassis")
-EVALOP = list(map(int, getenv("EVALOP", "6797202080").split()))
+OWNER_ID = int(getenv("OWNER_ID", 7688387817))
+OWNER_USERNAME = getenv("OWNER_USERNAME", "Dzkyu")
+BOT_USERNAME = getenv("BOT_USERNAME", "dzstreanbot")
+BOT_NAME = getenv("BOT_NAME", "˹ᴅᴢ sᴛʀᴇᴀᴍ˼")
+ASSUSERNAME = getenv("ASSUSERNAME", "Imtakyoo")
+EVALOP = list(map(int, getenv("EVALOP", "7688387817").split()))
 
 # ───── Mongo & Logging ───── #
 MONGO_DB_URI = getenv("MONGO_DB_URI")
-LOGGER_ID = int(getenv("LOGGER_ID", -1002014167331))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002644388541"))
 
 # ───── Limits and Durations ───── #
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
@@ -39,13 +39,13 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # ───── Git & Updates ───── #
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/CertifiedCoders/TuneViaBot")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/jaadisini/TuneViaBot")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
 GIT_TOKEN = getenv("GIT_TOKEN")
 
 # ───── Support & Community ───── #
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/CertifiedNetwork")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/CertifiedDiscussion")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ResahBerkata")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/DZarea")
 
 # ───── Assistant Auto Leave ───── #
 AUTO_LEAVING_ASSISTANT = False
