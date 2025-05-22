@@ -49,7 +49,7 @@ def private_help_panel(_):
     return [
         [
             InlineKeyboardButton(
-                text=_["S_B_3"],
+                text=_["S_B_8"],
                 url="https://t.me/{0}?start=help".format(app.username)
             )
         ]
