@@ -30,7 +30,7 @@ TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "5242880000"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 
 # ───── Custom API Configs ───── #
-COOKIE_URL = getenv("COOKIE_URL") #necessary
+COOKIE_URL = getenv("COOKIE_URL"  "https://pastebin.com/twh5xXun") #necessary
 API_URL = getenv("API_URL") #optional
 API_KEY = getenv("API_KEY") #optional
 
