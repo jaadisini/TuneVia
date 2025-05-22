@@ -11,15 +11,15 @@ def private_panel(_):
     return [
         [
             InlineKeyboardButton(
-                text=_["S_B_1"],
+                text=_["S_B_5"],
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(text=_["S_B_7"], user_id=config.OWNER_ID),
-            InlineKeyboardButton(text=_["S_B_4"], url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(text=_["S_B_3"], url=config.SUPPORT_CHAT),
         ],
         [
-            InlineKeyboardButton(text=_["S_B_3"], callback_data="open_help"),
+            InlineKeyboardButton(text=_["S_B_1"], callback_data="open_help"),
         ],
     ]
