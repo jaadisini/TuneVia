@@ -439,3 +439,22 @@ gban_8 : "<blockquote><b>**Membatalkan pemblokiran {0}**\n\nWaktu yang Diharapka
 gban_9 : "<blockquote><b>**UnGbanned Berhasil**\n\nUnbanned **{0}** di **{1}** chat.</b></blockquote>"
 gban_10 : "<blockquote><b>Tidak Ditemukan Pengguna yang Di-Gban.</b></blockquote>"
 gban_11 : "<blockquote><b>Harap tunggu sebentar.. Mengambil daftar pengguna Gbanned</b></blockquote>"
+
+
+#help
+H_B_1: "ᴀᴅᴍɪɴ"  
+H_B_2: "ᴀᴜᴛʜ"  
+H_B_3: "ɢ-ᴄᴀsᴛ"  
+H_B_4: "ʙʟ-ᴄʜᴀᴛ"  
+H_B_5: "ʙʟ-ᴜsᴇʀ"  
+H_B_6: "ᴄ-ᴘʟᴀʏ"  
+H_B_7: "ɢ-ʙᴀɴ"  
+H_B_8: "ʟᴏᴏᴘ"  
+H_B_9: "ʟᴏɢ"  
+H_B_10: "ᴘɪɴɢ"  
+H_B_11: "ᴘʟᴀʏ"  
+H_B_12: "sʜᴜғғʟᴇ"  
+H_B_13: "sᴇᴇᴋ"  
+H_B_14: "sᴏɴɢ"  
+H_B_15: "sᴘᴇᴇᴅ"  
+H_B_16: "ᴍᴇɴᴛɪᴏɴ"
