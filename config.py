@@ -70,9 +70,9 @@ SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "3000"))
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "2500"))
 
 # ───── Bot Media Assets ───── #
-START_VIDS = "https://h.uguu.se/pHvXbBqN.jpg"
+START_VIDS = ["https://h.uguu.se/pHvXbBqN.jpg"]
 
-STICKERS = "CAACAgUAAyEGAASeC3B-AAIlUGgznFz3_aoyfNBi30jsc9sZtO0-AAJAGQAC9aegVf0mBtUULsBtHgQ"
+STICKERS = ["CAACAgUAAyEGAASeC3B-AAIlUGgznFz3_aoyfNBi30jsc9sZtO0-AAJAGQAC9aegVf0mBtUULsBtHgQ"]
     
 
 HELP_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
