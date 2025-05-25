@@ -80,19 +80,19 @@ STICKERS = [
     "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
     "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ"
 ]
-HELP_IMG_URL = "https://files.catbox.moe/h3jqa8.jpg"
-PING_VID_URL = "https://files.catbox.moe/mi8nr0.mp4"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/t72ntd.jpg"
-STATS_VID_URL = "https://files.catbox.moe/5vdaw5.mp4"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/90juvd.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/7qplwr.jpg"
-STREAM_IMG_URL = "https://files.catbox.moe/4roh51.jpg"
-SOUNCLOUD_IMG_URL = "https://files.catbox.moe/wpkxzt.jpg"
-YOUTUBE_IMG_URL = "https://files.catbox.moe/cq87ww.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/qp5aa5.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/qp5aa5.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/qp5aa5.jpg"
-FAILED = "https://files.catbox.moe/cq87ww.jpg"
+HELP_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+PING_VID_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+PLAYLIST_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+STATS_VID_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+TELEGRAM_AUDIO_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+TELEGRAM_VIDEO_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+STREAM_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+SOUNCLOUD_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+YOUTUBE_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
+FAILED = "https://h.uguu.se/pHvXbBqN.jpg"
 
 
 # ───── Utility & Functional ───── #
