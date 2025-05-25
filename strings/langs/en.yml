@@ -170,13 +170,13 @@ queue_8: "<b>Pemutar {0}</b>\n\n <b>Streaming:</b> {1}\n\n <b>Jenis stream:</b> 
 
 stream_1: "➲ <b>Memulai Streaming |</b>\n\n<b>‣ Judul:</b> <a href={0}>{1}</a>\n<b>‣ Durasi:</b> {2} menit\n<b>‣ Diminta oleh:</b> {3}"
 stream_2: "➲ <b>Memulai Streaming |</b>\n\n<b>‣ Jenis stream:</b> Live stream [URL]\n<b>‣ Diminta oleh:</b> {0}"
-S_B_1: "Culik aku, sayang"
+S_B_1: "Tambahkan"
 S_B_2: "channel"
 S_B_3: "Bantuan & Perintah"
-S_B_4: "Dukungan"
+S_B_4: "Support"
 S_B_5: "Kode Sumber"
 S_B_6: "YouTube"
-S_B_7: "Programmer Tersertifikasi"
+S_B_7: "Owner"
 CLOSE_BUTTON: "Tutup"
 BACK_BUTTON: "Kembali"
 
