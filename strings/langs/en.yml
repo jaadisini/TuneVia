@@ -249,3 +249,23 @@ black_6 : "» Berhasil dihapus dari daftar chat yang diblacklist."
 black_7 : "» Daftar Chat yang Diblacklist :\n\n"
 black_8 : "» Tidak ada chat yang diblacklist di {0}."
 black_9 : "» Terjadi kesalahan."
+
+maint_1 : "<b>Contoh :</b>\n/maintenance [enable | disable]"
+maint_2 : "» Mode pemeliharaan {0} telah diaktifkan."
+maint_3 : "» Mode pemeliharaan {0} telah dinonaktifkan."
+maint_4 : "» Mode pemeliharaan sudah diaktifkan."
+maint_5 : "» Mode pemeliharaan sudah dinonaktifkan."
+
+log_1 : "<b>Contoh :</b>\n/logger [enable | disable]"
+log_2 : "Logging diaktifkan."
+log_3 : "Logging dinonaktifkan."
+
+broad_1 : "» Memulai penyiaran..."
+broad_2 : "<b>Contoh :</b>\n\n/broadcast [pesan atau balas ke pesan]"
+broad_3 : "» Pesan disiarkan ke {0} chat dengan {1} pesan yang dipin dari bot."
+broad_4 : "» Pesan disiarkan ke {0} pengguna."
+broad_5 : "» Memulai penyiaran melalui asisten..."
+broad_6 : "➻ Penyiaran Asisten :\n\n"
+broad_7 : "↬ Asisten {0} menyiarkan di {1} chat."
+broad_8 : "» Silakan berikan teks untuk disiarkan."
+
