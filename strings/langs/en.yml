@@ -216,3 +216,18 @@ ST_B_12 : "Inline"
 ST_B_13 : "Perintah Admin ➜"
 ST_B_14 : "Tipe Pemutaran ➜"
 
+SA_B_1 : "Statistik Keseluruhan"
+SA_B_2 : "Umum"
+SA_B_3 : "Keseluruhan"
+
+QU_B_1 : "Antrean"
+QU_B_2 : " {0} —————————— {1}"
+
+sudo_1 : "» {0} sudah ada dalam daftar pengguna sudo."
+sudo_2 : "» Menambahkan {0} ke daftar pengguna sudo."
+sudo_3 : "» {0} tidak ada dalam daftar pengguna sudo."
+sudo_4 : "» Menghapus {0} dari daftar pengguna sudo."
+sudo_5 : "<u><b>🥀 Pemilik :</b></u>\n"
+sudo_6 : "\n<u><b>✨ Pengguna Sudo :</b></u>\n"
+sudo_7 : "» Tidak ada pengguna sudo yang ditemukan."
+sudo_8 : "Gagal."
