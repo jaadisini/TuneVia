@@ -70,16 +70,11 @@ SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "3000"))
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "2500"))
 
 # ───── Bot Media Assets ───── #
-START_VIDS = [
-    "https://telegra.ph/file/9b7e1b820c72a14d90be7.mp4",
-    "https://telegra.ph/file/72f349b1386d6d9374a38.mp4",
-    "https://telegra.ph/file/a4d90b0cb759b67d68644.mp4"
-]
+START_VIDS = "https://h.uguu.se/pHvXbBqN.jpg"
 
-STICKERS = [
-    "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
-    "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ"
-]
+STICKERS = "CAACAgUAAyEGAASeC3B-AAIlUGgznFz3_aoyfNBi30jsc9sZtO0-AAJAGQAC9aegVf0mBtUULsBtHgQ"
+    
+
 HELP_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
 PING_VID_URL = "https://h.uguu.se/pHvXbBqN.jpg"
 PLAYLIST_IMG_URL = "https://h.uguu.se/pHvXbBqN.jpg"
