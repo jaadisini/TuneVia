@@ -16,7 +16,6 @@ def private_panel(_):
             )
         ],
         [
-            InlineKeyboardButton(text=_["S_B_7"], user_id=config.OWNER_ID),
             InlineKeyboardButton(text=_["S_B_3"], callback_data="open_help"),
         ],
         [
