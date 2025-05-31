@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup, Message
 from Tune import app
 from Tune.utils.database import get_lang, get_served_users, get_served_chats
 from Tune.utils.decorators.language import LanguageStart, languageCB
-from Tune.utils.inline.help import help_keyboard, help_back_markup, private_help_panel
+from Tune.utils.inline.help import help_keyboard_page, help_back_markup, private_help_panel
 from Tune.utils.inline.start import private_panel
 from config import BANNED_USERS, HELP_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
@@ -20,7 +20,7 @@ async def helper_private(client: Client, update: Union[Message, types.CallbackQu
     language = await get_lang(update.from_user.id)
     _ = get_string(language)
 
-    keyboard = help_keyboard(_)
+    keyboard = help_keyboard_page(_)
     caption = _["help_1"].format(SUPPORT_CHAT)
 
     if is_cb:
