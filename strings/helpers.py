@@ -162,3 +162,15 @@ HELP_16 = """
 
 **__Nᴏᴛᴇ__** Tʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ᴏɴʟʏ ᴜsᴇ ᴛʜᴇ Aᴅᴍɪɴs ᴏғ Cʜᴀᴛ ᴀɴᴅ ᴍᴀᴋᴇ Sᴜʀᴇ Bᴏᴛ ᴀɴᴅ ᴀssɪsᴛᴀɴᴛ ɪs ᴀɴ ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ's
 """
+
+HELP_16 = """
+• `/ankes [on|off]` : Aktif/nonaktifkan anti-GCAST
+• `/bl` : Tambah trigger blacklist
+• `/delbl` : Hapus trigger blacklist
+• `/wl` : Tambah user ke whitelist
+• `/unwl` : Hapus user dari whitelist
+• `/listwl` : Lihat daftar whitelist
+• `/dor` : Tambah user ke blacklist pesan
+• `/undor` : Hapus user dari blacklist pesan
+• `/listdor` : Lihat daftar blacklist pesan
+""""
