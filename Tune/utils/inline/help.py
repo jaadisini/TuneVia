@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from Tune import app  # Ganti sesuai nama Client jika bukan "app"
+from Tune import app
+from strings import helpers
 
 # Jumlah item per halaman
 ITEMS_PER_PAGE = 10
@@ -17,7 +18,7 @@ def help_keyboard_page(page: int, _):
             buttons.append([])
         buttons[-1].append(
             InlineKeyboardButton(
-                text=_.get(f"H_B_{i}", f"Modul {i}"),
+                text= getattr(helpers, f"HELP_{number}", None)
                 callback_data=f"help_callback hb{i}"
             )
         )
