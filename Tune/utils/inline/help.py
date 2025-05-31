@@ -1,13 +1,12 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from Tune import app
-from strings import helpers
+from strings import helpers  # Jika helpers adalah modul statis dengan HELP_1, HELP_2, dst.
 
-# Jumlah item per halaman
 ITEMS_PER_PAGE = 10
-TOTAL_BUTTONS = 17  # Total modul
+TOTAL_BUTTONS = 17  # Jumlah total modul
 
-# Fungsi utama untuk membuat menu help dengan halaman
+# Fungsi untuk membuat markup bantuan berdasarkan halaman
 def help_keyboard_page(page: int, _):
     start_index = (page - 1) * ITEMS_PER_PAGE
     end_index = start_index + ITEMS_PER_PAGE
@@ -18,16 +17,20 @@ def help_keyboard_page(page: int, _):
             buttons.append([])
         buttons[-1].append(
             InlineKeyboardButton(
-                text= getattr(helpers, f"HELP_{number}", None)
+                text=getattr(helpers, f"HELP_{i}", f"Modul {i}"),
                 callback_data=f"help_callback hb{i}"
             )
         )
 
     nav_buttons = []
     if page > 1:
-        nav_buttons.append(InlineKeyboardButton("⬅️ Sebelumnya", callback_data=f"help_page {page - 1}"))
+        nav_buttons.append(
+            InlineKeyboardButton("⬅️ Sebelumnya", callback_data=f"help_page {page - 1}")
+        )
     if end_index < TOTAL_BUTTONS:
-        nav_buttons.append(InlineKeyboardButton("Selanjutnya ➡️", callback_data=f"help_page {page + 1}"))
+        nav_buttons.append(
+            InlineKeyboardButton("Selanjutnya ➡️", callback_data=f"help_page {page + 1}")
+        )
     if nav_buttons:
         buttons.append(nav_buttons)
 
@@ -39,7 +42,7 @@ def help_keyboard_page(page: int, _):
     return InlineKeyboardMarkup(buttons)
 
 
-# Tombol kembali
+# Tombol kembali dari detail modul
 def help_back_markup(_):
     return InlineKeyboardMarkup([
         [
@@ -55,7 +58,7 @@ def help_back_markup(_):
     ])
 
 
-# Panel bantuan saat /start di PM
+# Panel bantuan saat /start dikirim di PM
 def private_help_panel(_):
     return [
         [
@@ -67,20 +70,20 @@ def private_help_panel(_):
     ]
 
 
-# Callback tombol halaman
+# Callback untuk navigasi halaman
 @app.on_callback_query(filters.regex(r"^help_page (\d+)"))
 async def help_page_callback(_, query: CallbackQuery):
-    page = int(query.data.split()[1])
+    page = int(query.matches[0].group(1))
     _lang = await get_lang(query.message.chat.id)
     await query.message.edit_reply_markup(
         reply_markup=help_keyboard_page(page, _lang)
     )
 
 
-# Callback detail modul
+# Callback untuk menampilkan detail modul
 @app.on_callback_query(filters.regex(r"^help_callback hb(\d+)"))
 async def help_callback_detail(_, query: CallbackQuery):
-    hb_index = int(query.data.split()[1].replace("hb", ""))
+    hb_index = int(query.matches[0].group(1))
     _lang = await get_lang(query.message.chat.id)
     text = f"📚 Bantuan untuk modul: <b>{_lang.get(f'H_B_{hb_index}', 'Modul tidak ditemukan.')}</b>"
     await query.message.edit_text(
