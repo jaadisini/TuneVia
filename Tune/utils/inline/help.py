@@ -113,7 +113,7 @@ async def get_lang(chat_id):
         "H_B_15": "Kecepatan",
         "H_B_16": "Tag All",
         "H_B_17": "Anti Gcast"
-        "S_B_8": "Klik untuk bantuan",
+        "S_B_3": "Perintah",
         "BACK_BUTTON": "Kembali",
         "CLOSE_BUTTON": "Tutup"
     }
