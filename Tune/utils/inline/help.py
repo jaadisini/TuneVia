@@ -3,15 +3,16 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from Tune import app  # Ganti sesuai nama Client jika bukan "app"
 
 # Jumlah item per halaman
-ITEMS_PER_PAGE = 6
+ITEMS_PER_PAGE = 10
+TOTAL_BUTTONS = 17  # Total modul
 
 # Fungsi utama untuk membuat menu help dengan halaman
-def help_keyboard_page(page, _):
+def help_keyboard_page(page: int, _):
     start_index = (page - 1) * ITEMS_PER_PAGE
     end_index = start_index + ITEMS_PER_PAGE
     buttons = []
 
-    for i in range(start_index + 1, min(end_index + 1, 16)):  # Total 15 tombol
+    for i in range(start_index + 1, min(end_index + 1, TOTAL_BUTTONS + 1)):
         if (i - 1 - start_index) % 3 == 0:
             buttons.append([])
         buttons[-1].append(
@@ -23,41 +24,35 @@ def help_keyboard_page(page, _):
 
     nav_buttons = []
     if page > 1:
-        nav_buttons.append(
-            InlineKeyboardButton("⬅️ Sebelumnya", callback_data=f"help_page {page - 1}")
-        )
-    if end_index < 15:
-        nav_buttons.append(
-            InlineKeyboardButton("Selanjutnya ➡️", callback_data=f"help_page {page + 1}")
-        )
+        nav_buttons.append(InlineKeyboardButton("⬅️ Sebelumnya", callback_data=f"help_page {page - 1}"))
+    if end_index < TOTAL_BUTTONS:
+        nav_buttons.append(InlineKeyboardButton("Selanjutnya ➡️", callback_data=f"help_page {page + 1}"))
     if nav_buttons:
         buttons.append(nav_buttons)
 
-    buttons.append(
-        [
-            InlineKeyboardButton(text="ᴍᴇɴᴜ", callback_data="back_to_main"),
-            InlineKeyboardButton(text=_.get("CLOSE_BUTTON", "Tutup"), callback_data="close"),
-        ]
-    )
+    buttons.append([
+        InlineKeyboardButton(text="📚 ᴍᴇɴᴜ", callback_data="back_to_main"),
+        InlineKeyboardButton(text=_.get("CLOSE_BUTTON", "Tutup"), callback_data="close"),
+    ])
 
     return InlineKeyboardMarkup(buttons)
 
+
 # Tombol kembali
 def help_back_markup(_):
-    return InlineKeyboardMarkup(
+    return InlineKeyboardMarkup([
         [
-            [
-                InlineKeyboardButton(
-                    text=_.get("BACK_BUTTON", "Kembali"),
-                    callback_data="open_help"
-                ),
-                InlineKeyboardButton(
-                    text=_.get("CLOSE_BUTTON", "Tutup"),
-                    callback_data="close"
-                ),
-            ]
+            InlineKeyboardButton(
+                text=_.get("BACK_BUTTON", "Kembali"),
+                callback_data="open_help"
+            ),
+            InlineKeyboardButton(
+                text=_.get("CLOSE_BUTTON", "Tutup"),
+                callback_data="close"
+            ),
         ]
-    )
+    ])
+
 
 # Panel bantuan saat /start di PM
 def private_help_panel(_):
@@ -70,7 +65,8 @@ def private_help_panel(_):
         ]
     ]
 
-# Handler tombol halaman
+
+# Callback tombol halaman
 @app.on_callback_query(filters.regex(r"^help_page (\d+)"))
 async def help_page_callback(_, query: CallbackQuery):
     page = int(query.data.split()[1])
@@ -79,7 +75,8 @@ async def help_page_callback(_, query: CallbackQuery):
         reply_markup=help_keyboard_page(page, _lang)
     )
 
-# Handler detail bantuan per modul
+
+# Callback detail modul
 @app.on_callback_query(filters.regex(r"^help_callback hb(\d+)"))
 async def help_callback_detail(_, query: CallbackQuery):
     hb_index = int(query.data.split()[1].replace("hb", ""))
@@ -90,7 +87,8 @@ async def help_callback_detail(_, query: CallbackQuery):
         reply_markup=help_back_markup(_lang)
     )
 
-# Simulasi get_lang → ganti dengan dari DB jika ada
+
+# Dummy get_lang() → ganti dengan DB jika tersedia
 async def get_lang(chat_id):
     return {
         "H_B_1": "Admin",
@@ -108,7 +106,6 @@ async def get_lang(chat_id):
         "H_B_13": "Cari",
         "H_B_14": "Lagu",
         "H_B_15": "Kecepatan",
-        # Tambahan jika nanti kamu mau support 17 tombol
         "H_B_16": "Tag All",
         "H_B_17": "Anti Gcast",
         "S_B_3": "Perintah",
