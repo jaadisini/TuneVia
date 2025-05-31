@@ -195,6 +195,8 @@ H_B_12: "Acak"
 H_B_13: "Cari"
 H_B_14: "Lagu"
 H_B_15: "Kecepatan"
+H_B_16: "Tag All",
+H_B_17: "Anti Gcast",
 
 P_B_1 : "Audio"
 P_B_2 : "Video"
