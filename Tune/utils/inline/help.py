@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from Tune import app  # ganti sesuai nama Client-mu jika bukan "app"
+from Tune import app  # Ganti sesuai nama Client jika bukan "app"
 
 # Jumlah item per halaman
 ITEMS_PER_PAGE = 6
@@ -11,12 +11,12 @@ def help_keyboard_page(page, _):
     end_index = start_index + ITEMS_PER_PAGE
     buttons = []
 
-    for i in range(start_index + 1, min(end_index + 1, 16)):  # total 15 tombol
+    for i in range(start_index + 1, min(end_index + 1, 16)):  # Total 15 tombol
         if (i - 1 - start_index) % 3 == 0:
             buttons.append([])
         buttons[-1].append(
             InlineKeyboardButton(
-                text=_[f"H_B_{i}"],
+                text=_.get(f"H_B_{i}", f"Modul {i}"),
                 callback_data=f"help_callback hb{i}"
             )
         )
@@ -24,11 +24,11 @@ def help_keyboard_page(page, _):
     nav_buttons = []
     if page > 1:
         nav_buttons.append(
-            InlineKeyboardButton("Sebelumnya", callback_data=f"help_page {page - 1}")
+            InlineKeyboardButton("⬅️ Sebelumnya", callback_data=f"help_page {page - 1}")
         )
     if end_index < 15:
         nav_buttons.append(
-            InlineKeyboardButton("Selanjutnya", callback_data=f"help_page {page + 1}")
+            InlineKeyboardButton("Selanjutnya ➡️", callback_data=f"help_page {page + 1}")
         )
     if nav_buttons:
         buttons.append(nav_buttons)
@@ -36,65 +36,62 @@ def help_keyboard_page(page, _):
     buttons.append(
         [
             InlineKeyboardButton(text="ᴍᴇɴᴜ", callback_data="back_to_main"),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            InlineKeyboardButton(text=_.get("CLOSE_BUTTON", "Tutup"), callback_data="close"),
         ]
     )
 
     return InlineKeyboardMarkup(buttons)
 
-# Fungsi markup tombol kembali
+# Tombol kembali
 def help_back_markup(_):
     return InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text=_["BACK_BUTTON"],
+                    text=_.get("BACK_BUTTON", "Kembali"),
                     callback_data="open_help"
                 ),
                 InlineKeyboardButton(
-                    text=_["CLOSE_BUTTON"],
+                    text=_.get("CLOSE_BUTTON", "Tutup"),
                     callback_data="close"
                 ),
             ]
         ]
     )
 
-# Panel bantuan jika dari /start di PM
+# Panel bantuan saat /start di PM
 def private_help_panel(_):
     return [
         [
             InlineKeyboardButton(
-                text=_["S_B_8"],
+                text=_.get("S_B_3", "Perintah"),
                 url=f"https://t.me/{app.username}?start=help"
             )
         ]
     ]
 
-
-# Callback handler help_page (navigasi halaman)
+# Handler tombol halaman
 @app.on_callback_query(filters.regex(r"^help_page (\d+)"))
 async def help_page_callback(_, query: CallbackQuery):
     page = int(query.data.split()[1])
-    _lang = await get_lang(query.message.chat.id)  # Anda harus menyesuaikan fungsi ini
+    _lang = await get_lang(query.message.chat.id)
     await query.message.edit_reply_markup(
         reply_markup=help_keyboard_page(page, _lang)
     )
 
-
-# Contoh callback jika ingin buka halaman detail bantuan
+# Handler detail bantuan per modul
 @app.on_callback_query(filters.regex(r"^help_callback hb(\d+)"))
 async def help_callback_detail(_, query: CallbackQuery):
-    hb_index = query.data.split()[1]
+    hb_index = int(query.data.split()[1].replace("hb", ""))
     _lang = await get_lang(query.message.chat.id)
+    text = f"📚 Bantuan untuk modul: <b>{_lang.get(f'H_B_{hb_index}', 'Modul tidak ditemukan.')}</b>"
     await query.message.edit_text(
-        text=f"Detail bantuan untuk modul {_lang.get(f'H_B_{hb_index[-1]}', 'Tidak ditemukan.')}",
+        text=text,
         reply_markup=help_back_markup(_lang)
     )
 
-
-# Dummy get_lang (ganti sesuai sistemmu)
+# Simulasi get_lang → ganti dengan dari DB jika ada
 async def get_lang(chat_id):
-    # Ganti ini dengan fetch bahasa asli dari DB kamu
     return {
         "H_B_1": "Admin",
         "H_B_2": "Otorisasi",
@@ -111,8 +108,9 @@ async def get_lang(chat_id):
         "H_B_13": "Cari",
         "H_B_14": "Lagu",
         "H_B_15": "Kecepatan",
+        # Tambahan jika nanti kamu mau support 17 tombol
         "H_B_16": "Tag All",
-        "H_B_17": "Anti Gcast"
+        "H_B_17": "Anti Gcast",
         "S_B_3": "Perintah",
         "BACK_BUTTON": "Kembali",
         "CLOSE_BUTTON": "Tutup"
