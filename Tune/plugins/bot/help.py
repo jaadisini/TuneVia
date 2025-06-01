@@ -50,21 +50,22 @@ async def help_com_group(client: Client, message: Message, _):
 
 
 # ✅ Callback from help buttons like "hb1", "hb2", ..., "hb17"
-@app.on_callback_query(filters.regex(r"^help_callback hb(\d+)$") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex(r"help_callback hb(\d+)") & ~BANNED_USERS)
 @languageCB
-async def help_detail_callback(client: Client, callback_query: CallbackQuery, _):
-    btn_id = int(callback_query.matches[0].group(1))
+async def paginate_help_menu(client, callback_query: types.CallbackQuery, _):
+    page = int(callback_query.matches[0].group(1))
+    
     try:
-        text = helpers.get(f"help_{btn_id}")
-        if not text:
-            return await callback_query.answer("Modul tidak ditemukan.", show_alert=True)
-        markup = help_back_markup(_)
-        await callback_query.edit_message_caption(
-            caption=text,
-            reply_markup=markup
-        )
-    except Exception as e:
-        await callback_query.answer(f"Gagal: {e}", show_alert=True)
+        caption = getattr(helpers, f"HELP_{number}", None)
+    except Exception:
+        caption = "❌ Terjadi kesalahan saat memuat bantuan."
+
+    markup = help_back_markup(_)
+
+    await callback_query.edit_message_caption(
+        caption=caption,
+        reply_markup=markup
+    )
 
 
 # ✅ Pagination callback: .Next/Prev
