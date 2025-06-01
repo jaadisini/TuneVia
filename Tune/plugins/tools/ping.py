@@ -7,7 +7,7 @@ from Tune import app
 from Tune.core.call import JARVIS
 from Tune.utils import bot_sys_stats
 from Tune.utils.decorators.language import language
-from Tune.utils.inline import help_keyboard_page
+from Tune.utils.inline import supp_markup
 from config import BANNED_USERS, PING_VID_URL
 
 
@@ -24,5 +24,5 @@ async def ping_com(client, message: Message, _):
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(
         _["ping_2"].format(resp, app.mention, UP, RAM, CPU, DISK, pytgping),
-        reply_markup=help_keyboard_page(_),
+        reply_markup=supp_markup(_),
     )
