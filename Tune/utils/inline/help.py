@@ -43,3 +43,12 @@ def help_keyboard(_, page=0):
     ])
 
     return InlineKeyboardMarkup(buttons)
+
+from pyrogram import Client, filters
+from pyrogram.types import CallbackQuery
+
+@Client.on_callback_query(filters.regex(r"^help_page (\d+)$"))
+async def paginate_help_menu(client, callback_query: CallbackQuery):
+    page = int(callback_query.matches[0].group(1))
+    markup = help_keyboard(_, page=page)  # Ganti `_` dengan fungsi translate kamu
+    await callback_query.edit_message_reply_markup(markup)
