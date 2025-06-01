@@ -26,7 +26,7 @@ from Tune.utils.database import (
 from Tune.utils.decorators.language import LanguageStart
 from Tune.utils.formatters import get_readable_time
 from Tune.utils.inline import private_panel, start_panel
-from Tune.utils.inline.help import help_keyboard_page
+from Tune.utils.inline.help import help_keyboard
 
 
 async def delete_sticker_after_delay(message, delay):
@@ -40,7 +40,7 @@ async def start_pm(client, message: Message, _):
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name.startswith("help"):
-            keyboard = help_keyboard_page(_)
+            keyboard = help_keyboard(_)
             await message.reply_photo(
                 photo=HELP_IMG_URL,
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
