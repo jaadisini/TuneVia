@@ -52,3 +52,14 @@ async def paginate_help_menu(client, callback_query: CallbackQuery):
     page = int(callback_query.matches[0].group(1))
     markup = help_keyboard(_, page=page)  # Ganti `_` dengan fungsi translate kamu
     await callback_query.edit_message_reply_markup(markup)
+
+
+def private_help_panel(_):
+    return [
+        [
+            InlineKeyboardButton(
+                text=_["S_B_3"],  # Contoh: "Klik di sini untuk bantuan"
+                url=f"https://t.me/{app.username}?start=help"
+            )
+        ]
+    ]
