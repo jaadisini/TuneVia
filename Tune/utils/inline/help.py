@@ -15,7 +15,7 @@ def help_keyboard(_):
     buttons.append(
         [
             InlineKeyboardButton(
-                text="๏ ᴍᴇɴᴜ ๏", 
+                text="ᴍᴇɴᴜ", 
                 callback_data="back_to_main"),
                 
             InlineKeyboardButton(
