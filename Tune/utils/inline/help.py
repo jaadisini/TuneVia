@@ -63,3 +63,20 @@ def private_help_panel(_):
             )
         ]
     ]
+    
+def help_back_markup(_):
+    return InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["BACK_BUTTON"],  # Contoh: "🔙 Kembali"
+                    callback_data="open_help"
+                ),
+                InlineKeyboardButton(
+                    text=_["CLOSE_BUTTON"],  # Contoh: "❌ Tutup"
+                    callback_data="close"
+                )
+            ]
+        ]
+    )
+
