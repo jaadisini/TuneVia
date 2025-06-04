@@ -4,7 +4,7 @@ from Tune import app
 def help_keyboard(_):
     buttons = []
     for i in range(1, 18):  # Dari H_B_1 sampai H_B_17
-        if (i - 1) % 3 == 0:
+        if (i - 1) % 2 == 0:
             buttons.append([])  # Baris baru setiap 3 tombol
         buttons[-1].append(
             InlineKeyboardButton(
