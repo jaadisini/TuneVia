@@ -393,7 +393,7 @@ async def toggle_antigcast(client, message):
     state = args[1].lower() == "on"
     config[chat_id] = state
     save_config(config)
-    x = await message.reply(f"Anti-GCAST telah {'AKTIF' if state else 'NONAKTIF'}.", quote=True)
+    x = await message.reply(f"<blockquote><b>Anti-GCAST telah {'AKTIF' if state else 'NONAKTIF'}.</b></blockquote>", quote=True)
     await asyncio.sleep(0.5)
     await x.delete()
         
