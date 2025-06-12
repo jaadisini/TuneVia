@@ -71,28 +71,26 @@ PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "2500"))
 
 # ───── Bot Media Assets ───── #
 START_VIDS = [
-    "https://telegra.ph/file/9b7e1b820c72a14d90be7.mp4",
-    "https://telegra.ph/file/72f349b1386d6d9374a38.mp4",
-    "https://telegra.ph/file/a4d90b0cb759b67d68644.mp4"
+    "https://files.catbox.moe/a2d9ok.jpg",
 ]
 
 STICKERS = [
     "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
     "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ"
 ]
-HELP_IMG_URL = "https://files.catbox.moe/h3jqa8.jpg"
-PING_VID_URL = "https://files.catbox.moe/mi8nr0.mp4"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/t72ntd.jpg"
-STATS_VID_URL = "https://files.catbox.moe/5vdaw5.mp4"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/90juvd.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/7qplwr.jpg"
-STREAM_IMG_URL = "https://files.catbox.moe/4roh51.jpg"
-SOUNCLOUD_IMG_URL = "https://files.catbox.moe/wpkxzt.jpg"
-YOUTUBE_IMG_URL = "https://files.catbox.moe/cq87ww.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/qp5aa5.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/qp5aa5.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/qp5aa5.jpg"
-FAILED = "https://files.catbox.moe/cq87ww.jpg"
+HELP_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+PING_VID_URL = "https://files.catbox.moe/a2d9ok.jpg"
+PLAYLIST_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+STATS_VID_URL = "https://files.catbox.moe/a2d9ok.jpg"
+TELEGRAM_AUDIO_URL = "https://files.catbox.moe/a2d9ok.jpg"
+TELEGRAM_VIDEO_URL = "https://files.catbox.moe/a2d9ok.jpg"
+STREAM_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+SOUNCLOUD_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+YOUTUBE_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+FAILED = "https://files.catbox.moe/a2d9ok.jpg"
 
 # ───── Utility & Functional ───── #
 def time_to_seconds(time: str) -> int:
