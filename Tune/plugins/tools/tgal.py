@@ -149,4 +149,5 @@ __MODULE__ = "Tᴀɢᴀʟʟ"
 __HELP__ = """
 /all | /tagall [pesan] atau reply ke pesan — Tag semua member grup
 /cancel — Hentikan proses tagall
-Tombol "
+Tombol "🚫 Berhenti Tag" akan muncul otomatis dan hanya bisa digunakan oleh pemicu perintah.
+"""
