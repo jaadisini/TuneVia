@@ -1,4 +1,6 @@
-import asyncio, logging, random
+import asyncio
+import logging
+import random
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
@@ -11,7 +13,6 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 spam_chats = []
-
 
 @app.on_message(filters.command(["all", "tagall"], prefixes="/") & filters.group)
 async def mentionall(client: Client, message: Message):
@@ -53,11 +54,11 @@ async def mentionall(client: Client, message: Message):
         members = [usr.user.id async for usr in client.get_chat_members(chat_id) if not usr.user.is_bot]
 
         stop_buttons = InlineKeyboardMarkup([
-            [InlineKeyboardButton("🚫 Berhenti Tag", callback_data=f"stop_tag:{chat_id}:{message.from_user.id}")],
+            [InlineKeyboardButton("🚫 Berhenti Tag", callback_data=f"stop_tag:{chat_id}")],
             [
-                InlineKeyboardButton("⏱ 3 Menit", callback_data=f"autostop:{chat_id}:{message.from_user.id}:180"),
-                InlineKeyboardButton("⏱ 5 Menit", callback_data=f"autostop:{chat_id}:{message.from_user.id}:300"),
-                InlineKeyboardButton("⏱ 10 Menit", callback_data=f"autostop:{chat_id}:{message.from_user.id}:600"),
+                InlineKeyboardButton("⏱ 3 Menit", callback_data=f"autostop:{chat_id}:180"),
+                InlineKeyboardButton("⏱ 5 Menit", callback_data=f"autostop:{chat_id}:300"),
+                InlineKeyboardButton("⏱ 10 Menit", callback_data=f"autostop:{chat_id}:600"),
             ]
         ])
 
@@ -112,14 +113,14 @@ async def mentionall(client: Client, message: Message):
         if chat_id in spam_chats:
             spam_chats.remove(chat_id)
 
-
-@app.on_callback_query(filters.regex(r"stop_tag:(-?\d+):(\d+)"))
+@app.on_callback_query(filters.regex(r"stop_tag:(-?\d+)"))
 async def stop_tag_callback(client: Client, callback_query):
-    chat_id, user_id = map(int, callback_query.data.split(":")[1:])
-    from_user = callback_query.from_user.id
+    chat_id = int(callback_query.data.split(":")[1])
 
-    if from_user != user_id:
-        return await callback_query.answer("⛔ Bukan kamu yang mulai tag ini!", show_alert=True)
+    # Check if the user is an admin
+    member = await client.get_chat_member(chat_id, callback_query.from_user.id)
+    if member.status not in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
+        return await callback_query.answer("⛔ Hanya admin yang bisa menghentikan tag!", show_alert=True)
 
     if chat_id in spam_chats:
         spam_chats.remove(chat_id)
@@ -127,14 +128,14 @@ async def stop_tag_callback(client: Client, callback_query):
     else:
         await callback_query.answer("❌ Tidak ada tag aktif.", show_alert=True)
 
-
-@app.on_callback_query(filters.regex(r"autostop:(-?\d+):(\d+):(\d+)"))
+@app.on_callback_query(filters.regex(r"autostop:(-?\d+):(\d+)"))
 async def auto_stop_tag(client: Client, callback_query):
-    chat_id, user_id, seconds = map(int, callback_query.data.split(":")[1:])
-    from_user = callback_query.from_user.id
-
-    if from_user != user_id:
-        return await callback_query.answer("⛔ Bukan kamu yang mulai tag ini!", show_alert=True)
+    chat_id, seconds = map(int, callback_query.data.split(":")[1:])
+    
+    # Check if the user is an admin
+    member = await client.get_chat_member(chat_id, callback_query.from_user.id)
+    if member.status not in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
+        return await callback_query.answer("⛔ Hanya admin yang bisa menghentikan tag!", show_alert=True)
 
     await callback_query.answer(f"✅ Proses tag akan berhenti otomatis dalam {seconds // 60} menit.")
     await asyncio.sleep(seconds)
@@ -145,7 +146,6 @@ async def auto_stop_tag(client: Client, callback_query):
             await callback_query.message.edit_text(f"⏹ Proses tag otomatis dihentikan setelah {seconds // 60} menit.")
         except:
             pass
-
 
 @app.on_message(filters.command(["cancel"], prefixes="/") & filters.group)
 async def cancel_spam(client: Client, message: Message):
@@ -163,10 +163,8 @@ async def cancel_spam(client: Client, message: Message):
         pass
     return await message.reply("__Oke aku diem.__")
 
-
 def load():
     LOGGER.info("Modul TagAll berhasil dimuat")
-
 
 __MODULE__ = "Tᴀɢᴀʟʟ"
 __HELP__ = """
