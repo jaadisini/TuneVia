@@ -1,9 +1,11 @@
+import asyncio
+import os
+import sys
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus
-import config
-import sys
 
-from Tune.logging import LOGGER
+import config
+from ..logging import LOGGER
 
 
 class JARVIS(Client):
@@ -13,49 +15,55 @@ class JARVIS(Client):
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
-            in_memory=True,
+            workers=30,
             max_concurrent_transmissions=7,
-            workers=50,
         )
         LOGGER(__name__).info("Bot client initialized.")
 
+    async def _auto_restart(self):
+        interval = getattr(config, "RESTART_INTERVAL", 86400)  # fallback 24 hours
+        while True:
+            await asyncio.sleep(interval)
+            try:
+                await self.disconnect()
+                await self.start()
+                LOGGER(__name__).info("🔄 Pyrogram session auto-restarted successfully.")
+            except Exception as exc:
+                LOGGER(__name__).warning(f"Auto-restart failed: {exc}")
 
     async def start(self):
         await super().start()
+        asyncio.create_task(self._auto_restart())
+
+        me = await self.get_me()
+        self.username, self.id = me.username, me.id
+        self.name = f"{me.first_name} {me.last_name or ''}".strip()
+        self.mention = me.mention
 
         try:
-            bot_info = await self.get_me()
-            self.username = bot_info.username
-            self.id = bot_info.id
-            self.name = f"{bot_info.first_name} {bot_info.last_name or ''}".strip()
-            self.mention = bot_info.mention
-
             await self.send_message(
-                chat_id=config.LOGGER_ID,
-                text=(
+                config.LOGGER_ID,
+                (
                     f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b></u>\n\n"
                     f"ɪᴅ : <code>{self.id}</code>\n"
                     f"ɴᴀᴍᴇ : {self.name}\n"
                     f"ᴜsᴇʀɴᴀᴍᴇ : @{self.username}"
                 ),
             )
-
-            chat_member = await self.get_chat_member(config.LOGGER_ID, self.id)
-            if chat_member.status != ChatMemberStatus.ADMINISTRATOR:
-                LOGGER(__name__).error(
-                    "❌ Bot is not an admin in the log group/channel. Please promote it."
-                )
-                sys.exit()
-
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
-            LOGGER(__name__).error(
-                "❌ Invalid LOGGER_ID. Make sure your bot is added to the log group/channel."
-            )
+            LOGGER(__name__).error("❌ Bot cannot access the log group/channel – add & promote it first!")
             sys.exit()
-        except Exception as ex:
-            LOGGER(__name__).error(
-                f"❌ Failed to access log group/channel.\nReason: {type(ex).__name__} - {ex}"
-            )
+        except Exception as exc:
+            LOGGER(__name__).error(f"❌ Failed to send startup message.\nReason: {type(exc).__name__}")
             sys.exit()
 
-        LOGGER(__name__).info(f"Tune Music Bot Started as {self.name}")
+        try:
+            member = await self.get_chat_member(config.LOGGER_ID, self.id)
+            if member.status != ChatMemberStatus.ADMINISTRATOR:
+                LOGGER(__name__).error("❌ Promote the bot as admin in the log group/channel.")
+                sys.exit()
+        except Exception as e:
+            LOGGER(__name__).error(f"❌ Could not check admin status: {e}")
+            sys.exit()
+
+        LOGGER(__name__).info(f"✅ Tune Music Bot Started as {self.name} (@{self.username})")
