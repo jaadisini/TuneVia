@@ -11,16 +11,16 @@ API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
-OWNER_ID = int(getenv("OWNER_ID", 7688387817))
-OWNER_USERNAME = getenv("OWNER_USERNAME", "Dzkyu")
-BOT_USERNAME = getenv("BOT_USERNAME", "dzstreanbot")
-BOT_NAME = getenv("BOT_NAME", "˹ᴅᴢ sᴛʀᴇᴀᴍ˼")
+OWNER_ID = int(getenv("OWNER_ID", 6305402536))
+OWNER_USERNAME = getenv("OWNER_USERNAME", "Dzkyou")
+BOT_USERNAME = getenv("BOT_USERNAME", "aleamusicbot")
+BOT_NAME = getenv("BOT_NAME", "ᴀʟᴇ ᴍᴜsɪᴄ")
 ASSUSERNAME = getenv("ASSUSERNAME", "Imtakyoo")
-EVALOP = list(map(int, getenv("EVALOP", "7688387817").split()))
+EVALOP = list(map(int, getenv("EVALOP", "6305402536").split()))
 
 # ───── Mongo & Logging ───── #
 MONGO_DB_URI = getenv("MONGO_DB_URI")
-LOGGER_ID = int(getenv("LOGGER_ID", "-1002644388541"))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002730786733"))
 
 # ───── Limits and Durations ───── #
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
@@ -45,7 +45,7 @@ GIT_TOKEN = getenv("GIT_TOKEN")
 
 # ───── Support & Community ───── #
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ResahBerkata")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/DZarea")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/DZareaa")
 
 # ───── Assistant Auto Leave ───── #
 AUTO_LEAVING_ASSISTANT = False
