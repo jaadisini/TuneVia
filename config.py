@@ -15,7 +15,7 @@ OWNER_ID = int(getenv("OWNER_ID", 6305402536))
 OWNER_USERNAME = getenv("OWNER_USERNAME", "Dzkyou")
 BOT_USERNAME = getenv("BOT_USERNAME", "aleamusicbot")
 BOT_NAME = getenv("BOT_NAME", "ᴀʟᴇ ᴍᴜsɪᴄ")
-ASSUSERNAME = getenv("ASSUSERNAME", "Imtakyoo")
+ASSUSERNAME = getenv("ASSUSERNAME", "dirawwy")
 EVALOP = list(map(int, getenv("EVALOP", "6305402536").split()))
 
 # ───── Mongo & Logging ───── #
