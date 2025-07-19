@@ -374,7 +374,7 @@ async def remove_user_from_whitelist(c, m):
         await m.delete()
 
 
-@app.on_message(filters.command("ankes") & ~filters.private & Admin)
+@app.on_message(filters.command("antigcast") & ~filters.private & Admin)
 async def toggle_antigcast(client, message):
     chat_id = str(message.chat.id)
     user_id = message.from_user.id
