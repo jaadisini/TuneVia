@@ -164,13 +164,10 @@ HELP_16 = """
 """
 
 HELP_17 = """
-• `/ankes [on|off]` : Aktif/nonaktifkan anti-GCAST
+• `/antigcast [on|off]` : Aktif/nonaktifkan anti-GCAST
 • `/bl` : Tambah trigger blacklist
 • `/delbl` : Hapus trigger blacklist
 • `/wl` : Tambah user ke whitelist
 • `/unwl` : Hapus user dari whitelist
 • `/listwl` : Lihat daftar whitelist
-• `/dor` : Tambah user ke blacklist pesan
-• `/undor` : Hapus user dari blacklist pesan
-• `/listdor` : Lihat daftar blacklist pesan
 """
