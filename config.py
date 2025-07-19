@@ -39,12 +39,12 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # ───── Git & Updates ───── #
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/jaadisini/TuneViaBot")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/jaadisini/TuneVia")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
 GIT_TOKEN = getenv("GIT_TOKEN")
 
 # ───── Support & Community ───── #
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ResahBerkata")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/dzdisni")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/DZareaa")
 
 # ───── Assistant Auto Leave ───── #
@@ -78,18 +78,18 @@ STICKERS = [
     "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
     "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ"
 ]
-HELP_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-PING_VID_URL = "https://files.catbox.moe/a2d9ok.jpg"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-STATS_VID_URL = "https://files.catbox.moe/a2d9ok.jpg"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/a2d9ok.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/a2d9ok.jpg"
-STREAM_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-SOUNCLOUD_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-YOUTUBE_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/a2d9ok.jpg"
+HELP_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+PING_VID_URL = "https://files.catbox.moe/1zpysu.jpg"
+PLAYLIST_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+STATS_VID_URL = "https://files.catbox.moe/1zpysu.jpg"
+TELEGRAM_AUDIO_URL = "https://files.catbox.moe/1zpysu.jpg"
+TELEGRAM_VIDEO_URL = "https://files.catbox.moe/1zpysu.jpg"
+STREAM_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+SOUNCLOUD_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+YOUTUBE_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/1zpysu.jpg"
 FAILED = "https://files.catbox.moe/a2d9ok.jpg"
 
 # ───── Utility & Functional ───── #
