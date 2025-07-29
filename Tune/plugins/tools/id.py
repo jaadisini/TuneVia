@@ -1,57 +1,10 @@
-import os
-from pyrogram import Client, filters
+from pyrogram import filters
+from pyrogram.enums import ParseMode
 from pyrogram.types import Message
+
 from Tune import app
 
-RESPON_FILE = "respon.txt"
-chatbot_enabled = {}
 
-# Fungsi baca respon dari file
-def load_responses():
-    responses = {}
-    if not os.path.exists(RESPON_FILE):
-        return responses
-    with open(RESPON_FILE, "r", encoding="utf-8") as f:
-        for line in f:
-            if "=" in line:
-                keyword, response = line.strip().split("=", 1)
-                responses[keyword.lower()] = response
-    return responses
-
-RESPONSES = load_responses()
-
-# Aktifkan/Nonaktifkan chatbot per chat
-@app.on_message(filters.command("autoreply"))
-async def toggle_chatbot(client, message: Message):
-    if len(message.command) < 2:
-        return await message.reply("Gunakan `/autoreply on` atau `/autoreply off`", quote=True)
-
-    status = message.command[1].lower()
-    chat_id = message.chat.id
-
-    if status == "on":
-        chatbot_enabled[chat_id] = True
-        await message.reply("✅ AutoReply diaktifkan untuk chat ini.", quote=True)
-    elif status == "off":
-        chatbot_enabled[chat_id] = False
-        await message.reply("❌ AutoReply dimatikan untuk chat ini.", quote=True)
-    else:
-        await message.reply("Gunakan `/autoreply on` atau `/autoreply off`", quote=True)
-
-# Handler untuk membalas otomatis
-@app.on_message(filters.text & ~filters.command("autoreply"))
-async def auto_reply_handler(client, message: Message):
-    chat_id = message.chat.id
-    if not chatbot_enabled.get(chat_id, False):
-        return
-
-    text = message.text.lower()
-    for keyword, response in RESPONSES.items():
-        if keyword in text:
-            await message.reply_text(response)
-            break
-
-# 📌 Command ID
 @app.on_message(filters.command("id"))
 async def get_id(client, message: Message):
     chat, user, reply = message.chat, message.from_user, message.reply_to_message
