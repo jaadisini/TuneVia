@@ -19,6 +19,6 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_3"], callback_data="open_help"),
         ],
         [
-            InlineKeyboardButton(text= "Donasi", url=f"https://files.catbox.moe/u0uns0.jpg",
+            InlineKeyboardButton(text= "Donasi", url=f"https://files.catbox.moe/u0uns0.jpg"),
         ],
     ]
