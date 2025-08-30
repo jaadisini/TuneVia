@@ -21,4 +21,7 @@ def private_panel(_):
         [
             InlineKeyboardButton(text= "Donasi", url=f"https://files.catbox.moe/u0uns0.jpg"),
         ],
+         [
+            InlineKeyboardButton(text= "Store", url=f"https://t.me/NakamaMarket"),
+        ],
     ]
